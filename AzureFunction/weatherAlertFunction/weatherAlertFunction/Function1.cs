@@ -29,11 +29,9 @@ namespace weatherAlertFunction
                     log.LogInformation($"C# Event Hub trigger function processed a message: {messageBody}");
                     await Task.Yield();
                 }
-                catch (Exception e)
-                {
-                    // We need to keep processing the rest of the batch - capture this exception and continue.
-                    // Also, consider capturing details of the message that failed processing so it can be processed again later.
-                    exceptions.Add(e);
+                catch (Exception ex)
+                { 
+                    exceptions.Add(ex);
                 }
             }
 
